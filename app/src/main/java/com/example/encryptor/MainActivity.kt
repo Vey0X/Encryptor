@@ -4,37 +4,57 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputEditText
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-  //  lateinit var tekst: TextView
-  //  lateinit var przycisk: Button
+    var wprowadzonyTekst: TextInputEditText = findViewById(R.id.tekstInput)
+    var wychodzacytekst: TextView = findViewById(R.id.tekst)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-     //   inicjalizacja()
+        klikPrzycisk1()
+    }
 
-        klik()
+    fun klikPrzycisk1() {
 
+        val przycisk1: Button = findViewById(R.id.przycisk1)
+
+        przycisk1.setOnClickListener {
+            var rotacja = ""
+
+            val charPool: List<Char> = ('a'..'z') + ('A'..'Z')
+            wprowadzonyTekst.forEach {
+                rotacja = rotacja.plus((it.toChar(any = "").hashCode()).toString().length)
+                rotacja = rotacja.plus(it.toChar(any = "").hashCode())
+                val randomString = (1..Random.nextInt(0, 3))
+                    .map { i -> Random.nextInt(0, charPool.size) }
+                    .map(charPool::get)
+                    .joinToString("");
+                rotacja = rotacja.plus(randomString)
+            }
+            rotacja = rotacja.reversed()
+            wychodzacytekst = findViewById(R.id.tekst)
+            wychodzacytekst.text = rotacja
+        }
 
     }
 
-fun inicjalizacja(){
-  //  tekst = findViewById(R.id.tekst)
- //   przycisk = findViewById(R.id.przycisk)
+
+    private fun TextInputEditText.forEach(function: () -> Unit) {
+
+    }
+
+    fun czyszczenie() {
+        wychodzacytekst = findViewById(R.id.tekst)
+        wychodzacytekst.text = ""
+    }
+
 }
 
-    fun klik(){
-        val tekst: TextView = findViewById(R.id.tekst)
-        val przycisk: Button = findViewById(R.id.przycisk)
-
-        przycisk.setOnClickListener {
-            tekst.setText("test")
-        }
-    }
-
-
-
+private fun Any.toChar(any: Any): Any {
+return any
 }

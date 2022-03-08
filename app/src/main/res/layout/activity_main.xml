@@ -6,10 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tytul"
+        android:layout_width="170dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="67dp"
+        android:text="Encryptor"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/przycisk1"
+            android:layout_width="177dp"
+            android:layout_height="52dp"
+            android:text="Kodowanie" />
+
+        <Button
+            android:id="@+id/przycisk2"
+            android:layout_width="176dp"
+            android:layout_height="52dp"
+            android:text="Dekodowanie" />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="334dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tytul">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tekstInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Wprowadź tekst"
+            android:textColorHint="#616161"
+            tools:ignore="TextContrastCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="379dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="440dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,13 +80,7 @@
             android:id="@+id/tekst"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
-
-        <Button
-            android:id="@+id/przycisk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_weight="1" />
     </LinearLayout>
 
 
